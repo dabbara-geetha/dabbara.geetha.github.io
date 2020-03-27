@@ -1,0 +1,441 @@
+{
+    "functions": [
+        {
+            "description": "Utility to calculate a list of unique, trumped, HCCs from dx codes, includes interactions and age/sex edits.",
+            "id": "DX2HCC",
+            "name": "DX2HCC",
+            "parameters": [
+                {
+                    "description": "accepts multiple list of dx codes",
+                    "dimensionality": "matrix",
+                    "name": "dx_list",
+                    "type": "string"
+                },
+                {
+                    "name": "age",
+                    "optional": true,
+                    "type": "any"
+                },
+                {
+                    "name": "ver",
+                    "optional": true,
+                    "type": "any"
+                },
+                {
+                    "name": "sex",
+                    "optional": true,
+                    "type": "any"
+                },
+                {
+                    "name": "disabl",
+                    "optional": true,
+                    "type": "any"
+                },
+                {
+                    "name": "never_trump",
+                    "optional": true,
+                    "type": "any"
+                },
+                {
+                    "name": "verbose",
+                    "optional": true,
+                    "type": "any"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "Look up the HCC code for each unique DX code in a list of DX. Includes trumping and agesex edits",
+            "id": "DX_HCCS",
+            "name": "DX_HCCS",
+            "parameters": [
+                {
+                    "name": "dx_list",
+                    "type": "any"
+                },
+                {
+                    "name": "ver",
+                    "optional": true,
+                    "type": "any"
+                },
+                {
+                    "name": "age",
+                    "optional": true,
+                    "type": "any"
+                },
+                {
+                    "name": "sex",
+                    "optional": true,
+                    "type": "any"
+                },
+                {
+                    "name": "verbose",
+                    "optional": true,
+                    "type": "any"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "dxdct_hccs",
+            "id": "DXDCT_HCCS",
+            "name": "DXDCT_HCCS",
+            "parameters": [
+                {
+                    "name": "dx_dct",
+                    "type": "any"
+                },
+                {
+                    "name": "never_trump",
+                    "optional": true,
+                    "type": "any"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "Convert string to list, dedupe, and ensure DX are formatted correctly.",
+            "id": "CLEAN_DXLIST",
+            "name": "CLEAN_DXLIST",
+            "parameters": [
+                {
+                    "description": "accepts multiple list of dx codes",
+                    "dimensionality": "matrix",
+                    "name": "dx_list",
+                    "type": "string"
+                },
+                {
+                    "name": "ver",
+                    "optional": true,
+                    "type": "any"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "Utility to calculate raf from list of DX codes",
+            "id": "DX2RAF",
+            "name": "DX2RAF",
+            "parameters": [
+                {
+                    "name": "dx_list",
+                    "type": "any"
+                },
+                {
+                    "name": "age",
+                    "optional": true,
+                    "type": "any"
+                },
+                {
+                    "name": "ver",
+                    "optional": true,
+                    "type": "any"
+                },
+                {
+                    "name": "model",
+                    "optional": true,
+                    "type": "any"
+                },
+                {
+                    "name": "sex",
+                    "optional": true,
+                    "type": "any"
+                },
+                {
+                    "name": "disabl",
+                    "optional": true,
+                    "type": "any"
+                },
+                {
+                    "name": "verbose",
+                    "optional": true,
+                    "type": "any"
+                },
+                {
+                    "name": "never_trump",
+                    "optional": true,
+                    "type": "any"
+                },
+                {
+                    "name": "baserate",
+                    "optional": true,
+                    "type": "any"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "Utility for prepping an HCC list, applying Trumping and Interactions; does not include age/sex interactions",
+            "id": "PREP_HCCS",
+            "name": "PREP_HCCS",
+            "parameters": [
+                {
+                    "description": "accepts multiple list of dx codes",
+                    "dimensionality": "matrix",
+                    "name": "hcc_list",
+                    "type": "string"
+                },
+                {
+                    "name": "ver",
+                    "optional": true,
+                    "type": "any"
+                },
+                {
+                    "name": "age",
+                    "optional": true,
+                    "type": "any"
+                },
+                {
+                    "name": "disabl",
+                    "optional": true,
+                    "type": "any"
+                },
+                {
+                    "name": "never_trump",
+                    "optional": true,
+                    "type": "any"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "Given a list of HCCs and an HCC version, returns a list of HCCs after trumping",
+            "id": "TRUMP_HCCS",
+            "name": "TRUMP_HCCS",
+            "parameters": [
+                {
+                    "description": "accepts multiple list of dx codes",
+                    "dimensionality": "matrix",
+                    "name": "hcc_list",
+                    "type": "string"
+                },
+                {
+                    "name": "ver",
+                    "optional": true,
+                    "type": "any"
+                },
+                {
+                    "name": "never_trump",
+                    "optional": true,
+                    "type": "any"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "clean hcclist",
+            "id": "CLEAN_HCCLIST",
+            "name": "CLEAN_HCCLIST",
+            "parameters": [
+                {
+                    "description": "accepts multiple list of dx codes",
+                    "dimensionality": "matrix",
+                    "name": "hcc_list",
+                    "type": "string"
+                },
+                {
+                    "name": "ver",
+                    "optional": true,
+                    "type": "any"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "get_hcc_dx",
+            "id": "GET_HCC_DX",
+            "name": "GET_HCC_DX",
+            "parameters": [
+                {
+                    "description": "accepts multiple list of dx codes",
+                    "dimensionality": "matrix",
+                    "name": "hcc_list",
+                    "type": "string"
+                },
+                {
+                    "description": "accepts multiple list of dx codes",
+                    "dimensionality": "matrix",
+                    "name": "dx_list",
+                    "type": "string"
+                },
+                {
+                    "name": "ver",
+                    "type": "any"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "condition_resolver",
+            "id": "CONDITION_RESOLVER",
+            "name": "CONDITION_RESOLVER",
+            "parameters": [
+                {
+                    "description": "accepts multiple list",
+                    "dimensionality": "matrix",
+                    "name": "conditionlist",
+                    "type": "string"
+                },
+                {
+                    "name": "ver",
+                    "optional": true,
+                    "type": "any"
+                },
+                {
+                    "name": "never_trump",
+                    "optional": true,
+                    "type": "any"
+                },
+                {
+                    "name": "allhcc",
+                    "optional": true,
+                    "type": "any"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "Edits DX List for a beneficiary based on AGE/SEX (From CMS I0V05ED2.TXT)",
+            "id": "AGESEX_EDITS",
+            "name": "AGESEX_EDITS",
+            "parameters": [
+                {
+                    "name": "dx_dct",
+                    "type": "any"
+                },
+                {
+                    "name": "age",
+                    "type": "any"
+                },
+                {
+                    "name": "sex",
+                    "type": "any"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "Look up demographic and hcc RAF for a member given codes. IMPORTANT: ASSUMES HCCs are already clean and deduped and hierarchy",
+            "id": "GET_RAF",
+            "name": "GET_RAF",
+            "parameters": [
+                {
+                    "name": "demo_lst",
+                    "type": "any"
+                },
+                {
+                    "name": "hcc_lst",
+                    "type": "any"
+                },
+                {
+                    "name": "ver",
+                    "optional": true,
+                    "type": "any"
+                },
+                {
+                    "name": "model",
+                    "optional": true,
+                    "type": "any"
+                },
+                {
+                    "name": "verbose",
+                    "optional": true,
+                    "type": "any"
+                },
+                {
+                    "name": "baserate",
+                    "optional": true,
+                    "type": "any"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "Create demographic variables used in regressions, from CMS SAS macro AGESEXV2",
+            "id": "AGESEX",
+            "name": "AGESEX",
+            "parameters": [
+                {
+                    "name": "age",
+                    "type": "any"
+                },
+                {
+                    "name": "sex",
+                    "type": "any"
+                },
+                {
+                    "name": "orec",
+                    "type": "any"
+                },
+                {
+                    "name": "model",
+                    "type": "any"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "Calculated interaction HCCs given a dict of hccs, age, and disability flag",
+            "id": "V22_INTERACTIONS",
+            "name": "V22_INTERACTIONS",
+            "parameters": [
+                {
+                    "name": "ccs",
+                    "type": "any"
+                },
+                {
+                    "name": "disabl",
+                    "type": "any"
+                },
+                {
+                    "name": "age",
+                    "optional": true,
+                    "type": "any"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "Calculated interaction HCCs given a dict of hccs, age, and disability flag",
+            "id": "V23_INTERACTIONS",
+            "name": "V23_INTERACTIONS",
+            "parameters": [
+                {
+                    "name": "ccs",
+                    "type": "any"
+                },
+                {
+                    "name": "disabl",
+                    "type": "any"
+                },
+                {
+                    "name": "age",
+                    "optional": true,
+                    "type": "any"
+                }
+            ],
+            "result": {}
+        },
+        {
+            "description": "Calculated interaction HCCs given a dict of hccs, age, and disability flag",
+            "id": "V24_INTERACTIONS",
+            "name": "V24_INTERACTIONS",
+            "parameters": [
+                {
+                    "name": "ccs",
+                    "type": "any"
+                },
+                {
+                    "name": "disabl",
+                    "type": "any"
+                },
+                {
+                    "name": "age",
+                    "optional": true,
+                    "type": "any"
+                }
+            ],
+            "result": {}
+        }
+    ]
+}
